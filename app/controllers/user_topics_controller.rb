@@ -1,0 +1,3 @@
+class UserTopicsController < ApplicationController
+
+end
