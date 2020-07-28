@@ -1,17 +1,18 @@
 class SessionsController < ApplicationController
 
     def new
+
     end
 
     def create
-        if params[:name] == nil
-            redirect_to controller: 'sessions', action: 'new'
-        elsif
-            params[:name].empty?
-            redirect_to controller: 'sessions', action: 'new'
+        user = User.find_by(username: params[:username])
+        if user && user.authenticate(params[:password])
+            session[:user_id] = user.id
+            flash[:success] = "Tweet for freedom"
+            redirect_to new_tweet_path
         else
-            session[:name] = params[:name]
-            redirect_to controller: 'application', action: 'account'
+            flash[:warning] = "Invalid username or password"
+            redirect_to 
         end
     end
 end

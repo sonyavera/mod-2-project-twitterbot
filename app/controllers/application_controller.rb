@@ -1,11 +1,12 @@
 class ApplicationController < ActionController::Base
-    before_action :find_user
+    
 
-    def find_user
+    def current_user 
         @current_user = User.find_by(id: session[:user_id])
-    end
+    end 
 
     def home
+
     end
     
     # def current_user

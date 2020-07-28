@@ -1,1 +1,5 @@
 <h1>Create a New Tweet</h1>
+
+<%= form_for @tweet do |f| %>
+<%= f.label :topics, :topics %>
+<%= f.collection_select :topics, %>
