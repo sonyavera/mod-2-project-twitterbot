@@ -1,8 +1,29 @@
+
+<div class="container">
 <h1>Sign Up</h1>
+
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <p style="color: red;"><%= error %></p>
+    <% end %>
+  <% end %>
+
 <%= form_for @user do |f|%>
+  <%= f.label :first_name%><br>
+  <%= f.text_field :first_name%><br>
+
+  <%= f.label :last_name%><br>
+  <%= f.text_field :last_name%><br>
+
   <%= f.label :username%><br>
   <%= f.text_field :username%><br>
+
   <%= f.label :password%><br>
   <%= f.password_field :password%><br>
-  <%= f.submit %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.submit "Create Account" %>
 <%end%>
+</div>
