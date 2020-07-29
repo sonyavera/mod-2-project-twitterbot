@@ -16,7 +16,6 @@ class FactsApi
     end
 
     def self.get_and_create_topics
-     
         response = HTTParty.get("https://api.fungenerators.com/fact/categories", headers: {"X-FunGenerators-Api-Secret" => "O755v78j41MyGnyzcJKuRQeF"})
         catagory_list = JSON.parse(response.body)
         catagory_list["contents"]["categories"].map do |facts|

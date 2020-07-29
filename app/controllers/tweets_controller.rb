@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+    before_action :set_tweet, only: [:show]
 
     @@result = nil
     def new
@@ -24,33 +25,46 @@ class TweetsController < ApplicationController
          topicID = params[:topic]
          topic_name = Topic.find_by(id:topicID).slug
          flash[:results] = FactsApi.get(topic_name)
-         @@result = flash[:results]
+         @@result = set_tweet_content_length(flash[:results])
          redirect_to new_tweet_path
     end
 
-    def create 
-        @tweet = Tweet.create(tweet_params)
-        @tweet.user_id = session[:user_id]
-        @tweet.topic_id = flash[:topic_id]
-
-        if @tweet.valid?
-            redirect_to tweet_path(@tweet)
+    
+    def set_tweet_content_length(content)
+        content_length = content.length
+        if content_length <= 280
+            content
         else
-            flash[:errors] = @tweet.errors.full_messages
-            redirect_to new_tweet_path
+            edited_content = content
+            until edited_content.length <= 280 do
+                content_array = edited_content.split(". ")   
+                content_array.pop
+                edited_content = content_array.join(". ")
+            end
+            edited_content + "."
         end
     end
+
 
     #generates tweet content based on user input from form in new.html.erb
     def generatetweet
         target = Target.all.sample
         flash[:tweet_success] = "Nice tweet! Let's send it out."
         bot_response = Bot.update("@#{target.handle} #{@@result}")
+        Tweet.create(target_id: target.id, user_id: session[:user_id], topic_id: flash[:topic_id], status_number: bot_response[/\d+/].to_i)
+        redirect_to tweets_path(session[:id])
+    end
+
+    def show
     end
 
     private
 
     def tweet_params
-        params.require(:tweet).permit(:target_id, :user_id, :topic_id)
+        params.require(:tweet).permit(:target_id, :user_id, :topic_id, :status_number)
+    end
+
+    def set_tweet
+        @tweet = Tweet.find(params[:id])
     end
 end

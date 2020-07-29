@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   post  '/factsearch' => 'tweets#getfact'
   post '/tweetgenerate' => 'tweets#generatetweet'
+  get '/tweets' => 'tweets#index'
+  get '/tweets/:id' => 'tweets#show'
 end
