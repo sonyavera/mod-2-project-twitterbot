@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_29_151958) do
+ActiveRecord::Schema.define(version: 2020_07_29_174916) do
 
   create_table "targets", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_07_29_151958) do
 
   create_table "topics", force: :cascade do |t|
     t.string "name"
+    t.string "slug"
   end
 
   create_table "tweets", force: :cascade do |t|

@@ -22,7 +22,7 @@ class TweetsController < ApplicationController
     def getfact
          flash[:topic_id] = params[:topic]
          topicID = params[:topic]
-         topic_name = Topic.find_by(id:topicID).name
+         topic_name = Topic.find_by(id:topicID).slug
          flash[:results] = FactsApi.get(topic_name)
          @@result = flash[:results]
          redirect_to new_tweet_path
