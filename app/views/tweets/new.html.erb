@@ -1,5 +1,29 @@
 <h1>Create a New Tweet</h1>
 
-<%= form_for @tweet do |f| %>
-<%= f.label :topics, :topics %>
-<%= f.collection_select :topics, %>
+    <% if flash[:success] %>
+<h3><%= flash[:success]   %></h3>
+    <% end %><br><br>
+
+
+<% if !flash[:topic_id] %>
+<%= form_with(url: '/factsearch', method: 'post') do |f| %>
+<%= f.label :topic %>
+<%= f.collection_select :topic, @topics, :id, :name %>
+<%= f.submit "Submit" %>
+<% end %>
+
+<% else %>
+<%= form_with(url: '/factsearch', method: 'post') do |f| %>
+<%= f.label :topic %>
+<%= f.collection_select :topic, @topics, :id, :name, {:prompt => @selected_topic.name} %>
+<%= f.submit "Submit" %>
+
+<% end %>
+<% end %>
+
+
+<% if flash[:results] %>
+<%= flash[:results] %>
+<% end %>
+
+

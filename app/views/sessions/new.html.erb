@@ -1,6 +1,6 @@
-<h1> Login </h1>
+<h1> Please Login </h1>
 
-<%= form_for '/login', method: :post do |f| %>
+<%= form_for :user, url: '/login' do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username %>
 
@@ -9,4 +9,8 @@
 
   <%= f.submit 'log in' %>
   
+<% end %>
+
+<% if flash[:warning] %>
+<%=flash[:warning] %></h3>
 <% end %>

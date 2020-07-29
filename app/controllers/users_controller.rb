@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-    before_action :set_user, only: [:account, :update]
+    skip_before_action :authorize, only: [:signup, :create]
+    # before_action :set_user, only: [:account, :update]
 
     def signup
         @user = User.new
@@ -12,6 +13,7 @@ class UsersController < ApplicationController
        user  = User.create(user_params)
        if user.valid?
         session[:user_id] = user.id 
+        flash[:success] = "Thanks #{user.first_name} for creating your account! You are now logged in. It is time for you to Tweet for freedom!"
         redirect_to new_tweet_path #does this connect the new tweet with the user?
        else
         flash[:errors] = users.errors.full_messages
