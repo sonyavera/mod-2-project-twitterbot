@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
 
+    @@result = nil
     def new
         @tweet = Tweet.new
         if flash[:topic_id]
@@ -23,14 +24,14 @@ class TweetsController < ApplicationController
          topicID = params[:topic]
          topic_name = Topic.find_by(id:topicID).name
          flash[:results] = FactsApi.get(topic_name)
+         @@result = flash[:results]
          redirect_to new_tweet_path
     end
 
-
-    
     def create 
         @tweet = Tweet.create(tweet_params)
         @tweet.user_id = session[:user_id]
+        @tweet.topic_id = flash[:topic_id]
 
         if @tweet.valid?
             redirect_to tweet_path(@tweet)
@@ -40,6 +41,12 @@ class TweetsController < ApplicationController
         end
     end
 
+    #generates tweet content based on user input from form in new.html.erb
+    def generatetweet
+        target = Target.all.sample
+        flash[:tweet_success] = "Nice tweet! Let's send it out."
+        bot_response = Bot.update("@#{target.handle} #{@@result}")
+    end
 
     private
 

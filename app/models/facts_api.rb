@@ -15,7 +15,6 @@ class FactsApi
         end
     end
 
-    ## Don't need to use the following methods 
     def self.get_all_categories
         response = HTTParty.get("https://api.fungenerators.com/fact/categories", headers: {"X-FunGenerators-Api-Secret" => "O755v78j41MyGnyzcJKuRQeF"})
         catagory_list = JSON.parse(response.body)
@@ -25,13 +24,11 @@ class FactsApi
     end
 
     def self.create_category
-        
       cats = self.get_all_categories
         cats.each do |cat|
             new_word = cat.strip
             Topic.create(name: new_word)
         end
-        
     end
 
 end

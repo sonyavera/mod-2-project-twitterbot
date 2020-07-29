@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get '/signup' => 'users#signup', as: 'signup'
   post '/login' => 'sessions#create'
   post  '/factsearch' => 'tweets#getfact'
+  post '/tweetgenerate' => 'tweets#generatetweet'
 end
