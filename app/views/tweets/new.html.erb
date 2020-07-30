@@ -11,14 +11,14 @@
 <%= form_with(url: '/factsearch', method: 'post') do |f| %>
 <%= f.label :topic %>
 <%= f.collection_select :topic, @topics, :id, :name %>
-<%= f.submit "Randomize a fact" %>
+<%= f.submit "Randomize a fact", class: 'button' %>
 <% end %>
 
 <% else %>
 <%= form_with(url: '/factsearch', method: 'post') do |f| %>
 <%= f.label :topic %>
 <%= f.collection_select :topic, @topics, :id, :name, {:prompt => @selected_topic.name} %>
-<%= f.submit "Randomize a fact" %>
+<%= f.submit "Randomize a fact", class: 'button' %>
 
 <% end %>
 <% end %>
@@ -32,7 +32,7 @@
 <%= form_with(url: '/tweetgenerate', method: 'post') do |f| %>
 <h2>Looks good? Press "Send tweet" to send out the tweet from the bot account.</h2>
 <h2>If you'd like to change the tweet content, select another topic from the drop down. </h2>
-<%= f.submit "Send tweet" %>
+<%= f.submit "Drop some knowledge!", class: 'button' %>
 <%end%>
 
 

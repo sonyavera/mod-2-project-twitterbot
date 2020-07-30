@@ -14,74 +14,81 @@
  *= require_self
  */
 
-   #nav_bar {
-    float: right;
-  }
-  
-  #nav_bar li {
-    display: inline-block;
-    padding: 8px;
-  }
-  .nav-links {
-    color: #404040;
-  }
-  
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  li.nav-links a:hover {
-    text-decoration: underline;
-    color: #404040
-  }
 
-  
-  #nav_bar #log_in {
-    background: #4887ef; 
-    margin-right: 25px;
-    padding: 7px 15px;
-    border-radius: 3px; 
-    font-weight: bold;
-  }
+ .logo {
+  width: 5vw;
+  position: relative;
+  left: 30px;
+  padding: 5px;
+  margin: 0;
+  margin-top: 10px;
+}
 
-  #nav_bar #sign_up {
-    background: #4887ef; 
-    margin-right: 25px;
-    padding: 7px 15px;
-    border-radius: 3px; 
-    font-weight: bold;
-  }
-  
-  
-  
-  #log_in:hover { 
-    box-shadow: 1px 1px 5px #999;
-  }
-  
-  #log_in {
-    color: #fff;
-  }
+.nav {
+  display: inline-block;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+.nav-bar > ul > .nav-item:hover {
+  opacity: .5;
+  background-color: white);
+}
 
-  #sign_up:hover { 
-    box-shadow: 1px 1px 5px #999;
-  }
+.nav-item-container {
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+}
+.nav-item {
+  color: white;
   
-  #sign_up {
-    color: #fff;
-  }
+}
+.nav > ul {
+  display: inline-flex;
+  margin-left: 8vw;
+  top:13px;
+}
+.nav > ul > li {
+  padding-right: 70px;
+  cursor: pointer;
+  list-style: none;
+  font-size: 1em;
+  font-family: helvetica;
+}
 
-  #nav_bar li #log_in {
-    display: inline-block;
-    padding: 4px;
-  }
-  
-  .logo {
-    width: 8vw;
-    position: left;
-    left: 30px;
-    padding: 5px;
-    margin: 0;
-    margin-top: 10px;
-    align-left
-  }
+.nav > ul > li > .nav-item {
+  padding-right: 20px;
+}
+
+
+
+.nav.nav-bar {
+  background-color: white;
+}
+
+
+#content {
+  padding: 90px;
+  text-align: center;
+}
+
+h1, h2, h3 {
+  font-family: helvetica;
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.tweets {
+
+}

@@ -1,11 +1,11 @@
-<h1>Account page</h2>
+<h1>Your Account Info</h2>
 
 First Name: <%= @user.first_name %><br>
 Last  Name: <%= @user.last_name %><br>
 Username: <%= @user.username %><br>
 
- <%= form_with(url: '/logout', method: 'post') do |f| %>
-    <%= f.submit "Logout" %>
+ <%= form_with(url: '/logout', method: 'post') do |f| %><br>
+    <%= f.submit "Log Out", class: 'button' %>
     <% end %>
 
     

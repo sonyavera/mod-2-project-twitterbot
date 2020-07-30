@@ -1,11 +1,15 @@
-<h1>Welcome to Twitterbot (can rename)</h1>
+<%= stylesheet_link_tag '/assets/home.css', media: 'all', 'data-turbolinks-track': 'reload' %>
 
+<body class="content">
+<h1>Welcome to Tweet-A-Fact!</h1>
+
+<h3> Please sign in or create an account to begin sending out tweets.</h3>
 
 
 <h2><% if flash[:authorization_message] %> </h2>
     <%= flash[:authorization_message]  %>
     <% end %>
 
-
+</body>
 
 

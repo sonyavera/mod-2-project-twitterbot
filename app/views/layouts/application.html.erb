@@ -9,22 +9,36 @@
 
 
 
-
-<ul id="nav_bar">
-  <li><%= image_tag ("/assets/tweet_a_fact_logo.gif"), class: "logo" %></li>
-  <li><%= link_to "Home", root_path %></li>
-  <li><%= link_to "New Tweet", new_tweet_path %></li>
-  <li><%= link_to "All My Tweets", tweets_path %></li>
-  <li><%= link_to "My Account", account_path %></li>
+<body>
+<div class="nav nav-bar">
+<%= image_tag ("/assets/tweet_a_fact_logo.gif"), class: "logo" %>
+<ul class="nav-item-container"> 
+  <li class="nav-item"><%= link_to "Home", root_path %></li>
+  <li class="nav-item"><%= link_to "New Tweet", new_tweet_path %></li>
+  <li class="nav-item"><%= link_to "All My Tweets", tweets_path %></li>
+  <li class="nav-item"><%= link_to "My Account", account_path %></li>
 <% if @current_user %>
-  <li>Welcome <%= @current_user.first_name %>!!!</li>
+  <li>Welcome <%= @current_user.first_name %>!</li>
 <% else %>
   <li id="log_in"><%= link_to "Login", '/login', method: :get%></li>
   <li id="sign_up"><%= link_to "Sign Up", '/signup', method: :get%></li>
 </ul>
+
 <% end %>
+</div>
 
+
+
+
+<div id='content'>
 <%= yield %>
+</div>
+
+</body>
 
 
-       
+</html>
+
+
+
+
