@@ -11,14 +11,14 @@
 <%= form_with(url: '/factsearch', method: 'post') do |f| %>
 <%= f.label :topic %>
 <%= f.collection_select :topic, @topics, :id, :name %>
-<%= f.submit "Submit" %>
+<%= f.submit "Randomize a fact" %>
 <% end %>
 
 <% else %>
 <%= form_with(url: '/factsearch', method: 'post') do |f| %>
 <%= f.label :topic %>
 <%= f.collection_select :topic, @topics, :id, :name, {:prompt => @selected_topic.name} %>
-<%= f.submit "Submit" %>
+<%= f.submit "Randomize a fact" %>
 
 <% end %>
 <% end %>
@@ -36,9 +36,3 @@
 <%end%>
 
 
-
-<%= form_with(url: '/account', method: 'get') do |f| %>
-Navigate to the <%= f.submit "Account Page" %>
-<% end %>
-
-<%= link_to "Click here to check out a list of all your tweets", tweets_path %>

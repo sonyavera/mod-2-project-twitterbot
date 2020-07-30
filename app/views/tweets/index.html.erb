@@ -1,6 +1,9 @@
 <h1>All your tweets</h1>
-
-<% @tweets_html.each do |tweet_html| %>
+<% if @tweets.length > 0  %>
+    <% @tweets_html.each do |tweet_html| %>
     <div><%= raw(tweet_html) %></div><br>
-<% end %>
+    <% end %>
+<% else %>
+    <%= link_to "Click here to create more tweets", new_tweet_path %>
+<%end %>
 

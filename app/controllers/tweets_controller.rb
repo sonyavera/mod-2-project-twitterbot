@@ -52,7 +52,7 @@ class TweetsController < ApplicationController
                   tweet.user_id == session[:user_id]
                   end 
         @tweets_html = @tweets.map do |tweet|
-                            GetTweets.get_a_tweet(tweet.status_number)
+                            GetTweets.get_a_tweet(tweet.status_number) 
                        end
     end 
 

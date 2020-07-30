@@ -7,8 +7,10 @@ class ApplicationController < ActionController::Base
     end 
 
     def authorize
-        redirect_to root_path unless current_user 
-        flash[:authorization_message] = "You are not logged in or have an account, so we navigated you back to the home page"
+        if !current_user
+            redirect_to root_path
+            flash[:authorization_message] = "You are not logged in or have an account, so we navigated you back to the home page"
+        end
     end
     
     def home
@@ -16,3 +18,8 @@ class ApplicationController < ActionController::Base
     end
 
 end
+
+# if !current_user
+#     redirect_to root_path
+#     flash[:authorization_message] = "You are not logged in or have an account, so we navigated you back to the home page"
+# end

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Tweet-A-Fact</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag '/assets/application.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+ </head>
+
+
+
+
+<ul id="nav_bar">
+  <li><%= image_tag ("/assets/tweet_a_fact_logo.gif"), class: "logo" %></li>
+  <li><%= link_to "Home", root_path %></li>
+  <li><%= link_to "New Tweet", new_tweet_path %></li>
+  <li><%= link_to "All My Tweets", tweets_path %></li>
+  <li><%= link_to "My Account", account_path %></li>
+<% if @current_user %>
+  <li>Welcome <%= @current_user.first_name %>!!!</li>
+<% else %>
+  <li id="log_in"><%= link_to "Login", '/login', method: :get%></li>
+  <li id="sign_up"><%= link_to "Sign Up", '/signup', method: :get%></li>
+</ul>
+<% end %>
+
+<%= yield %>
+
+
+       
