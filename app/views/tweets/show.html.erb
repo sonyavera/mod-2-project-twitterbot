@@ -1,5 +1,4 @@
-<h1>Your tweet has been sent! Here it is</h1>
+<h1>Hey <%= @tweet.user.first_name %>, your tweet has been sent! Here it is</h1><br>
 
-<h1>Hey <%= @tweet.user.first_name %>, your tweet has been sent! Here it is</h1>
-<h2>Display tweet here</h2> <br>
-<%= link_to "Click here to check out a list of all your tweets", tweets_path(@tweet) %>
+<%= raw(@tweet_html) %>
+<%= link_to "Click here to check out a list of all your tweets", tweets_path %>

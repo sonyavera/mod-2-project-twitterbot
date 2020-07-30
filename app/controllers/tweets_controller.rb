@@ -48,11 +48,14 @@ class TweetsController < ApplicationController
     end
 
     def index
-        @tweets = @tweets.all
-    end
+        @tweets = Tweet.all.select do |tweet|
+                  tweet.user_id == session[:user_id]
+                  end 
+        @tweets_html = @tweets.map do |tweet|
+                            GetTweets.get_a_tweet(tweet.status_number)
+                       end
+    end 
 
-    # [/\d+/].to_i
-    #generates tweet content based on user input from form in new.html.erb
     def generatetweet
         target = Target.all.sample
         flash[:tweet_success] = "Nice tweet! Let's send it out."
@@ -62,8 +65,7 @@ class TweetsController < ApplicationController
     end
 
     def show
-     @tweet.status_number
-
+        @tweet_html = GetTweets.get_a_tweet(@tweet.status_number)
     end
 
     private

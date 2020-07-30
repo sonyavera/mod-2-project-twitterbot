@@ -6,9 +6,6 @@
     <%= flash[:authorization_message]  %>
     <% end %>
 
-<% if flash[:success] %>
-<%= flash[:success]%>
-<% end %>
 
 <%= button_to "Login", '/login', method: :get%>
 <%= button_to "Sign Up", '/signup', method: :get%>
