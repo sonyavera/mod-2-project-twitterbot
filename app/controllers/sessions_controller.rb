@@ -1,10 +1,11 @@
 class SessionsController < ApplicationController
-        skip_before_action :authorize, only: [:new, :create]
+        skip_before_action :authorize, only: [:new, :login]
     def new
 
     end
+    
 
-    def create
+    def login
         user = User.find_by(username: params[:user][:username])
         
         if user && user.authenticate(params[:user][:password])
@@ -16,4 +17,10 @@ class SessionsController < ApplicationController
             redirect_to login_path
         end
     end
+
+    def logout
+            session.delete(:user_id)
+            redirect_to root_path
+            flash[:success] = "Thanks #{user.first_name}! You have been successfully logged out"
+    end 
 end

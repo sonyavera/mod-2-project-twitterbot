@@ -2,6 +2,7 @@ class TweetsController < ApplicationController
     before_action :set_tweet, only: [:show]
 
     @@result = nil
+    @@topic_saved = nil
     def new
         @tweet = Tweet.new
         if flash[:topic_id]
@@ -22,6 +23,7 @@ class TweetsController < ApplicationController
 =end
     def getfact
          flash[:topic_id] = params[:topic]
+         @@topic_saved = params[:topic]
          topicID = params[:topic]
          topic_name = Topic.find_by(id:topicID).slug
          flash[:results] = FactsApi.get(topic_name)
@@ -45,17 +47,23 @@ class TweetsController < ApplicationController
         end
     end
 
+    def index
+        @tweets = @tweets.all
+    end
 
+    # [/\d+/].to_i
     #generates tweet content based on user input from form in new.html.erb
     def generatetweet
         target = Target.all.sample
         flash[:tweet_success] = "Nice tweet! Let's send it out."
         bot_response = Bot.update("@#{target.handle} #{@@result}")
-        Tweet.create(target_id: target.id, user_id: session[:user_id], topic_id: flash[:topic_id], status_number: bot_response[/\d+/].to_i)
-        redirect_to tweets_path(session[:id])
+        @tweet = Tweet.create(target_id: target.id, user_id: session[:user_id], topic_id: @@topic_saved, status_number: bot_response.id)
+        redirect_to tweet_path(@tweet)
     end
 
     def show
+     @tweet.status_number
+
     end
 
     private

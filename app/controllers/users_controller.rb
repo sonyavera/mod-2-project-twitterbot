@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     end
 
     def account
+        @user = User.find_by(id: session[:user_id])
     end
 
     def create
@@ -14,7 +15,7 @@ class UsersController < ApplicationController
        if user.valid?
         session[:user_id] = user.id 
         flash[:success] = "Thanks #{user.first_name} for creating your account! You are now logged in. It is time for you to Tweet for freedom!"
-        redirect_to new_tweet_path #does this connect the new tweet with the user?
+        redirect_to new_tweet_path 
        else
         flash[:errors] = users.errors.full_messages
         redirect_to new_user_path(user)
