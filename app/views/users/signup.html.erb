@@ -9,20 +9,20 @@
   <% end %>
 
 <%= form_for @user do |f|%>
-  <%= f.label :first_name%><br>
-  <%= f.text_field :first_name%><br>
+  <h3><%= f.label :first_name%>
+  <%= f.text_field :first_name%></h3>
 
-  <%= f.label :last_name%><br>
-  <%= f.text_field :last_name%><br>
+  <h3><%= f.label :last_name%>
+  <%= f.text_field :last_name%></h3>
 
-  <%= f.label :username%><br>
-  <%= f.text_field :username%><br>
+  <h3><%= f.label :username%>
+  <%= f.text_field :username%></h3>
 
-  <%= f.label :password%><br>
-  <%= f.password_field :password%><br>
+  <h3><%= f.label :password%>
+  <%= f.password_field :password%></h3>
 
-  <%= f.label :password_confirmation %><br>
-  <%= f.password_field :password_confirmation %> <br><br>
+  <h3><%= f.label :confirm   %> 
+  <%= f.password_field :password_confirmation %></h3> <br><br>
 
   <%= f.submit "Create Account", class: 'button' %>
 <%end%>

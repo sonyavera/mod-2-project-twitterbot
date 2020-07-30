@@ -3,11 +3,14 @@
 <body class="content">
 <h1>Welcome to Tweet-A-Fact!</h1>
 
-<h3> Please sign in or create an account to begin sending out tweets.</h3>
+<h3> Please log in or create an account to begin sending out tweets.</h3>
 
+<br><br><br>
+<div id="box"><%= image_tag ("/assets/dwight_fact_meme.jpg") %>
+</div>
 
-<h2><% if flash[:authorization_message] %> </h2>
-    <%= flash[:authorization_message]  %>
+        <% if flash[:authorization_message] %>
+   <h2> <%= flash[:authorization_message]%></h2>
     <% end %>
 
 </body>

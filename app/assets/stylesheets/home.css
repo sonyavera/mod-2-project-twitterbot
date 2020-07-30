@@ -1,3 +1,9 @@
 body #content{
     text-align: center;
 }
+
+
+body > #content > div#box > img {
+    max-width: 5000px;
+    max-height: 5000px; 
+}

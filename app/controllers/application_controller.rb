@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
 
     def authorize
         if !current_user
-            redirect_to root_path
-            flash[:authorization_message] = "You are not logged in or have an account, so we navigated you back to the home page"
+            redirect_to login_path
+            flash[:authorization_message] = "You are not authorized for that page, please log in or sign up."
         end
     end
     

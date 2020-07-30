@@ -7,9 +7,10 @@
   <%= f.label :password %>
   <%= f.password_field :password %>
 
-  <%= f.submit 'Log In', , class: 'button' %>
+  <%= f.submit 'Log In', class: 'button' %>
   
 <% end %>
+<h4>Don't have an account? Sign up <%= link_to "here.", signup_path %></h4>  
 
 <% if flash[:warning] %>
 <%=flash[:warning] %></h3>

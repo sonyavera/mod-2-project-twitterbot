@@ -17,8 +17,8 @@ class UsersController < ApplicationController
         flash[:success] = "Thanks #{user.first_name} for creating your account! You are now logged in. It is time for you to Tweet for freedom!"
         redirect_to new_tweet_path 
        else
-        flash[:errors] = users.errors.full_messages
-        redirect_to new_user_path(user)
+        flash[:errors] = user.errors.full_messages
+        redirect_to signup_path
        end 
     end
 
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
             session[:user_id] = user.id 
             redirect_to new_tweet_path
            else
-            flash[:errors] = users.errors.full_messages
+            flash[:errors] = user.errors.full_messages
             redirect_to edit_account_path(@user.id)
         end 
     end
