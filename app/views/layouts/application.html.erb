@@ -18,7 +18,7 @@
   <li class="nav-item"><%= link_to "All My Tweets", tweets_path %></li>
   <li class="nav-item"><%= link_to "My Account", account_path %></li>
 <% if @current_user %>
-  <li>Welcome <%= @current_user.first_name %>!</li>
+  <li id="welcome-message">Welcome <%= @current_user.first_name %>!</li>
 <% else %>
   <li id="log_in"><%= link_to "Login", '/login', method: :get%></li>
   <li id="sign_up"><%= link_to "Sign Up", '/signup', method: :get%></li>

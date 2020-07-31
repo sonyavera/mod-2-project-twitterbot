@@ -7,9 +7,9 @@ class TweetsController < ApplicationController
         @tweet = Tweet.new
         if flash[:topic_id]
             @selected_topic = Topic.find(flash[:topic_id])
-            @topics = Topic.all
+            @topics = Topic.all.order("slug")
         else
-            @topics = Topic.all
+            @topics = Topic.all.order("slug")
         end
     end
 =begin
@@ -34,7 +34,7 @@ class TweetsController < ApplicationController
     
     def set_tweet_content_length(content)
         content_length = content.length
-        if content_length <= 280
+        if content_length <= 265
             content
         else
             edited_content = content

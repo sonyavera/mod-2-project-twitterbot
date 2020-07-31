@@ -45,7 +45,4 @@ class FactsApi
               Topic.create(slug: new_word)
           end
       end
-
-
-
 end

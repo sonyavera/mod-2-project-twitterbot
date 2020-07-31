@@ -1,7 +1,7 @@
 <h1> Please Login </h1>
 
 <%= form_for :user, url: '/login' do |f| %>
-  <%= f.label :username %>
+  <h4><%= f.label :username %>
   <%= f.text_field :username %>
 
   <%= f.label :password %>
@@ -9,7 +9,7 @@
 
   <%= f.submit 'Log In', class: 'button' %>
   
-<% end %>
+<% end %></h4>
 <h4>Don't have an account? Sign up <%= link_to "here.", signup_path %></h4>  
 
 <% if flash[:warning] %>

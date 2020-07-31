@@ -16,12 +16,9 @@
 
 
  .logo {
-  width: 5vw;
+  width: 150px;
   position: relative;
   left: 30px;
-  padding: 5px;
-  margin: 0;
-  margin-top: 10px;
 }
 
 .nav {
@@ -33,17 +30,29 @@
 }
 .nav-bar > ul > .nav-item:hover {
   opacity: .5;
-  background-color: white);
+  border-bottom-color: #f7f45e;
 }
-
+ 
 .nav-item-container {
-  display: inline-block;
-  position: absolute;
-  right: 10px;
+  margin: 12px;
 }
 .nav-item {
   color: white;
-  
+  width: 100px;
+  text-align: center;
+  padding-bottom: 12px;
+  border-bottom: 4px solid #FDFDFD;
+
+}
+
+#welcome-message {
+  color: gray;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
 }
 .nav > ul {
   display: inline-flex;
@@ -51,8 +60,9 @@
   top:13px;
 }
 .nav > ul > li {
-  padding-right: 70px;
+  margin-right: 40px;
   cursor: pointer;
+  
   list-style: none;
   font-size: 1em;
   font-family: helvetica;
@@ -65,12 +75,16 @@
 
 
 .nav.nav-bar {
-  background-color: white;
+  background-color: #FDFDFD;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 
 #content {
   padding: 90px;
+  margin-top: 100px;
   text-align: center;
 }
 
