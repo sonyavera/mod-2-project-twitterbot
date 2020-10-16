@@ -12,7 +12,7 @@ class FactsApi
         category_title = test["contents"]["subcategory"].strip
         fact = test["contents"]["fact"]
         "#{category_title}: #{fact}"
-        end
+        end   
     end
 
     def self.get_and_create_topics
