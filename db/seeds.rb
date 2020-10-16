@@ -37,4 +37,3 @@ Target.create(name: "Steve Scalise", handle: "stevescalise")
 Target.create(name: "Rand Paul", handle: "randpaul")
 Target.create(name: "Ron DeSantis", handle: "GovRonDeSantis")
 
-Target.create(name: "Kevin O'Connor", handle: "ronnoconivek")

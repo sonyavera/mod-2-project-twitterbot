@@ -4,7 +4,7 @@ require 'json'
 
 class FactsApi
     def self.get(category)
-        response = HTTParty.get("https://api.fungenerators.com/fact/random?category=#{category}", headers: {"X-FunGenerators-Api-Secret" => "O755v78j41MyGnyzcJKuRQeF"})
+        response = HTTParty.get("https://api.fungenerators.com/fact/random?category=#{category}", headers: {"X-FunGenerators-Api-Secret" => "IXr0Qu9moK2gl3Qa0EhAzweF"})
         test = JSON.parse(response.body)
         if test["contents"]["fact"] == nil
            "Sorry there wasn't a fact for this topic, try again!"

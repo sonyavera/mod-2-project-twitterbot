@@ -8,32 +8,31 @@
 
 
 <% if !flash[:topic_id] %>
-<%= form_with(url: '/factsearch', method: 'post') do |f| %>
-<h3>Choose <%= f.label :topic %>:
-<%= f.collection_select :topic, @topics, :id, :name, class: "collection_select" %>
-<%= f.submit "Randomize a fact", class: 'button' %></h3><br><br><br>
-<% end %>
+    <%= form_with(url: '/factsearch', method: 'post') do |f| %>
+    <h3>Choose <%= f.label :topic %>:
+    <%= f.collection_select :topic, @topics, :id, :name, class: "collection_select" %>
+    <%= f.submit "Randomize a fact", class: 'button' %></h3><br><br><br>
+    <% end %>
 
 <% else %>
-<%= form_with(url: '/factsearch', method: 'post') do |f| %>
-<h3>Choose a <%= f.label :topic %>:
-<%= f.collection_select :topic, @topics, :id, :name, {:prompt => @selected_topic.name} %>
-<%= f.submit "Randomize a fact", class: 'button' %></h3><br><br><br>
-
-<% end %>
+    <%= form_with(url: '/factsearch', method: 'post') do |f| %>
+    <h3>Choose a <%= f.label :topic %>:
+    <%= f.collection_select :topic, @topics, :id, :name, {:prompt => @selected_topic.name} %>
+    <%= f.submit "Randomize a fact", class: 'button' %></h3><br><br><br>
+    <% end %>
 <% end %>
 
 
 <% if flash[:results] %>
-<div class="flash_text"><%= flash[:results]%></div>
-<br><br><br>
+    <div class="flash_text"><%= flash[:results]%></div>
+    <br><br><br>
 <% end %>
 
 <!-- new form that accepts the flash and allows user to generate tweet to randomized user-->
 <%= form_with(url: '/tweetgenerate', method: 'post') do |f| %>
-<h3>Look good?</h3>
-<h3>Press the button below to send out the tweet from the bot account.</h3>
-<h3>If you'd like to change the tweet content, select another topic from the drop down. </h3>
+    <h3>Look good?</h3>
+    <h3>Press the button below to send out the tweet from the bot account.</h3>
+    <h3>If you'd like to change the tweet content, select another topic from the drop down. </h3>
 <%= f.submit "Drop some knowledge!", class: 'button' %>
 <%end%>
 
